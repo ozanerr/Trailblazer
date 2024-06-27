@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class PaymentProvider with ChangeNotifier {
   List<String> _options = [
-    'Credit/Debit Card', 
-    'OVO', 
-    'GoPay', 
-    'Google Pay', 
+    'Credit/Debit Card',
+    'OVO',
+    'GoPay',
+    'Google Pay',
     'PayPal',
   ];
   String _selected = 'Credit/Debit Card';

@@ -1,10 +1,12 @@
+import 'package:Trailblazer_Flutter/util/ProfileProvider.dart';
 import 'package:flutter/material.dart';
-import '../provider/paymentprov.dart';
+import 'package:Trailblazer_Flutter/util/paymentprov.dart';
 
 class PaymentMethodPage extends StatelessWidget {
   final PaymentProvider paymentMethodProvider;
 
-  const PaymentMethodPage({Key? key, required this.paymentMethodProvider}) : super(key: key);
+  const PaymentMethodPage({Key? key, required this.paymentMethodProvider})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,8 @@ class PaymentMethodPage extends StatelessWidget {
                 context: context,
                 builder: (context) => AlertDialog(
                   title: const Text('Confirm Payment Method'),
-                  content: Text('Are you sure you want to use $paymentMethod as your payment method?'),
+                  content: Text(
+                      'Are you sure you want to use $paymentMethod as your payment method?'),
                   actions: [
                     TextButton(
                       child: const Text('Cancel'),
@@ -43,7 +46,8 @@ class PaymentMethodPage extends StatelessWidget {
               );
               if (confirm ?? false) {
                 paymentMethodProvider.choice(paymentMethod);
-                Navigator.of(context).popUntil((route) => route.isFirst); // Go back to the settings page
+                Navigator.of(context).popUntil(
+                    (route) => route.isFirst); // Go back to the settings page
               }
             },
             child: Container(
@@ -58,7 +62,8 @@ class PaymentMethodPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.network(
-                    paymentMethodProvider.getImageUrl(paymentMethod), // Get image from provider
+                    paymentMethodProvider
+                        .getImageUrl(paymentMethod), // Get image from provider
                     width: 100,
                     height: 100,
                   ),
